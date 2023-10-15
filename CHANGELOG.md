@@ -20,7 +20,7 @@ import 'package:custom_error/custom_error.dart';
 void main() {
   // Create and manage custom errors
   final error = Error(100, 'Error 100');
-  error.AddError(200, 'Error 200');
+  error.addError(200, 'Error 200');
 
   // Access error details
   String errorMessage = error.getError();

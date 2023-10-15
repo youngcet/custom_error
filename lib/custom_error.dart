@@ -14,7 +14,7 @@ class Error {
     errors.add({'code': code, 'error' : error});
   }
 
-  void AddError(int errorCode, String errorMsg){
+  void addError(int errorCode, String errorMsg){
     errors.add({'code': errorCode, 'error' : errorMsg});
   }
 

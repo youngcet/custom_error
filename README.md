@@ -51,7 +51,7 @@ void main() {
   }
 
   // setting multiple errors
-  error.AddError(200, 'This is another error.');
+  error.addError(200, 'This is another error.');
   // Retrieve all errors
   List<Map<String, dynamic>> allErrors = error.getAllErrors();
   //print(allErrors);   > [{'code': 100, 'error': 'Name Incorrect.'}, {'code': 200, 'error': 'This is another error.'}]

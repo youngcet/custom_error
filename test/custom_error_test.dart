@@ -13,7 +13,7 @@ void main() {
     {'code': errorCode200, 'error' : error200}];
 
     final error = Error(errorCode100, error100);
-    error.AddError(errorCode200, error200);
+    error.addError(errorCode200, error200);
     expect(error.getError(), error100);
     expect(error.getErrorCode(), errorCode100);
     expect(error.isAnError(error), true);
