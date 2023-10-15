@@ -1,13 +1,13 @@
 library custom_error;
 
-class Error {
+class CustomError {
   
   String error;
   int code;
 
   List<Map<String, dynamic>> errors = [];
 
-  Error(this.code, this.error){
+  CustomError(this.code, this.error){
     _setError(error);
     _setErrorCode(code);
 
@@ -39,6 +39,6 @@ class Error {
   }
 
   bool isAnError(dynamic val){
-    return (val is Error) ? true : false;
+    return (val is CustomError) ? true : false;
   }
 }

@@ -22,7 +22,7 @@ To use the "custom_error" package in your Dart project, add it to your pubspec.y
 
 ```yaml
 dependencies:
-  custom_error: ^0.0.1
+  custom_error: ^0.0.2
 ```
 
 ## Usage
@@ -32,15 +32,16 @@ import 'package:custom_error/custom_error.dart';
 
 void main() {
   // Create and manage custom errors
-  final error;
+  dynamic error;
 
   String name = 'Yung';
   if (name !== 'Yung'){
-    error = Error(100, 'Name Incorrect.');
+    error = CustomError(100, 'Name Incorrect.');
   }
 
   // Check if a value is an Error instance
-  if (error.isAnError(error)){
+  // ALWAYS CHECK THAT error is not null
+  if (error != null && error.isAnError(error)){
     // handle error
     // Access error details
     String errorMessage = error.getError();

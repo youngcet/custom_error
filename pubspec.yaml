@@ -1,6 +1,6 @@
 name: custom_error
 description: This library sets and gets custom application errors.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/youngcet/custom_error
 
 environment:

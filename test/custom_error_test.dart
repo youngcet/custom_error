@@ -12,7 +12,7 @@ void main() {
     List<Map<String, dynamic>> errors = [{'code': errorCode100, 'error' : error100}, 
     {'code': errorCode200, 'error' : error200}];
 
-    final error = Error(errorCode100, error100);
+    final error = CustomError(errorCode100, error100);
     error.addError(errorCode200, error200);
     expect(error.getError(), error100);
     expect(error.getErrorCode(), errorCode100);
