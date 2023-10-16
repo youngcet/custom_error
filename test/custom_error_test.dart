@@ -12,12 +12,20 @@ void main() {
     List<Map<String, dynamic>> errors = [{'code': errorCode100, 'error' : error100}, 
     {'code': errorCode200, 'error' : error200}];
 
-    final error = CustomError(errorCode100, error100);
-    error.addError(errorCode200, error200);
-    expect(error.getError(), error100);
-    expect(error.getErrorCode(), errorCode100);
-    expect(error.isAnError(error), true);
-    expect(error.isAnError('error'), false);
-    expect(error.getAllErrors(), errors);
+    CustomError customError = CustomError();
+    CustomError customError2 = CustomError();
+    customError.setError(errorCode100, error100);
+    expect(customError.getError(), error100);
+    expect(customError.getErrorCode(), errorCode100);
+
+    customError.addError(errorCode100, error100);
+    customError.addError(errorCode200, error200);
+    expect(customError.getError(), error200);
+    expect(customError.getErrorCode(), errorCode200);
+    expect(customError.isAnError(), true);
+    expect(customError.hasAnError(), true);
+    expect(customError2.isAnError(), false);
+    expect(customError2.hasAnError(), false);
+    expect(customError.getAllErrors(), errors);
   });
 }
