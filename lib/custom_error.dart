@@ -1,49 +1,63 @@
 library custom_error;
 
+import 'custom_error_manager.dart';
+
+/// A class for managing custom errors.
 class CustomError {
-  
+
   String? _error;
   int? _code;
 
+  bool? showDialogOnError = false;
+
   List<Map<String, dynamic>> errors = [];
 
-  CustomError();
+  /// Default constructor for the CustomError class.
+  CustomError({this.showDialogOnError});
 
-  void addError(int errorCode, String errorMsg){
+  /// Add a new error with the specified [errorCode] and [errorMsg].
+  void addError(int errorCode, String errorMsg) {
     setError(errorCode, errorMsg);
-    errors.add({'code': errorCode, 'error' : errorMsg});
+    errors.add({'code': errorCode, 'error': errorMsg});
   }
 
-  void setError(int errorCode, String errorMsg){
+  /// Set the error message to [errorMsg] and error code to [errorCode].
+  void setError(int errorCode, String errorMsg) {
     _setErrorMsg(errorMsg);
     _setErrorCode(errorCode);
   }
 
-  void _setErrorMsg(String errorMsg){
+  /// Set the error message to [errorMsg].
+  void _setErrorMsg(String errorMsg) {
     _error = errorMsg;
   }
 
-  void _setErrorCode(int errorCode){
+  /// Set the error code to [errorCode].
+  void _setErrorCode(int errorCode) {
     _code = errorCode;
   }
 
-  String getError(){
+  /// Get the error message.
+  String getError() {
     return _error!;
   }
 
-  int getErrorCode(){
+  /// Get the error code.
+  int getErrorCode() {
     return _code!;
   }
 
-  bool hasAnError(){
+  /// Check if an error exists. Returns `true` if an error exists; otherwise, `false`.
+  bool hasAnError() {
     return (_error != null && _code != null) ? true : false;
   }
 
-  List<Map<String, dynamic>> getAllErrors(){
+  List<Map<String, dynamic>> getAllErrors() {
     return errors;
   }
 
-  bool isAnError(){
+  /// Check if an error exists. Returns `true` if an error exists; otherwise, `false`.
+  bool isAnError() {
     //return (val is CustomError) ? true : false;
     return hasAnError();
   }

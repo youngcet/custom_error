@@ -17,6 +17,8 @@ The `custom_error` library is designed to simplify error management in your Flut
 - **Error Retrieval:** Easily access individual error details using getter methods.
 - **Error State Check:** Check if an error exists with the `hasAnError()` method.
 - **Type Checking:** Determine if an object is an instance of `CustomError` using the `isAnError()` method.
+- **Show dialogs** with custom titles, messages, and actions when an error occurs.
+- **Display SnackBars** with custom backgrounds and behaviors based on error conditions.
 
 ## Installation
 
@@ -47,7 +49,8 @@ void main() {
   }
 
   // Check if an error exists
-  // you can also use error.isAnError(), instead of error.hasAnError()
+  // You can also use error.isAnError(), instead of error.hasAnError()
+  // To display a dialog / snackbar when an error has occured use CustomErrorManager, see examples below
   if (error.hasAnError()) {
     // handle error
     print('Error: ${error.getError()}, Code: ${error.getErrorCode()}');
@@ -69,6 +72,83 @@ void main() {
     print('No error found.');
   }
 }
+```
+
+### Showing a Dialog / SnackBar when an error occurs using CustomErrorManager
+
+#### Error Dialog
+
+![Custom Error Dialog](https://permanentlink.co.za/img/customerrordialog.png)
+
+```dart
+import 'package:custom_error/custom_error.dart';
+
+...
+...
+  ElevatedButton(
+    onPressed: (){
+      CustomError customError = CustomError();
+      customError.setError(-1, 'Showing Error Dialog');
+
+      // add dialog buttons
+      final actions = <Widget>[
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+            // add code logic for the button
+          },
+          child: Text('OK'),
+        ),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+            // add code logic for the button
+          },
+          child: Text('Cancel'),
+        )
+      ];
+
+      // Show a dialog when an error occurs
+      CustomErrorManager.showDialogIfError(
+        context,
+        customError,
+        "Error Title",
+        "Optional error message", // if set to null, customError.getError() message will be used
+        actions,
+      );
+    },
+    child: Text('Show Error Dialog'),
+  ),
+  ...
+  ...
+```
+
+#### Error SnackBar
+
+![Custom Error SnackBar](https://permanentlink.co.za/img/customerrorsnackbar.png)
+
+```dart
+import 'package:custom_error/custom_error.dart';
+
+...
+...
+  ElevatedButton(
+    onPressed: (){
+      CustomError customError = CustomError();
+      customError.setError(-1, 'Showing Error SnackBar');
+
+      // Display a SnackBar when an error occurs
+      CustomErrorManager.showSnackBarIfError(
+        context,
+        customError,
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+      );
+    },
+    child: Text('Show Error SnackBar'),
+  )
+  ...
+  ...
 ```
 
 ## Documentation

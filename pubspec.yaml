@@ -1,6 +1,6 @@
 name: custom_error
-description: This library sets and gets custom application errors.
-version: 0.0.3
+description: The "custom_error" library is a powerful flutter package designed to streamline error management and elevate error handling in your flutter applications.
+version: 0.0.4
 homepage: https://github.com/youngcet/custom_error
 
 environment:
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  ndialog: ^4.3.1
 
 dev_dependencies:
   flutter_test:

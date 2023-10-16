@@ -9,8 +9,10 @@ void main() {
     String error200 = 'error 200';
     int errorCode200 = 200;
 
-    List<Map<String, dynamic>> errors = [{'code': errorCode100, 'error' : error100}, 
-    {'code': errorCode200, 'error' : error200}];
+    List<Map<String, dynamic>> errors = [
+      {'code': errorCode100, 'error': error100},
+      {'code': errorCode200, 'error': error200}
+    ];
 
     CustomError customError = CustomError();
     CustomError customError2 = CustomError();
