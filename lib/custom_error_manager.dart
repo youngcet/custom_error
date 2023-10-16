@@ -10,14 +10,8 @@ class CustomErrorManager {
   /// This method displays an NAlertDialog with the provided `title`, `message`,
   /// and `actions` when an error is detected in the `customError` object.
   /// If `message` is not provided, it uses the error message from `customError`.
-  static void showDialogIfError(
-    BuildContext context, 
-    CustomError customError, 
-    String title, 
-    String? message, 
-    List<Widget>? actions
-    ){
-
+  static void showDialogIfError(BuildContext context, CustomError customError,
+      String title, String? message, List<Widget>? actions) {
     String dialogMsg = message ?? customError.getError();
 
     if (customError.hasAnError()) {
@@ -39,12 +33,8 @@ class CustomErrorManager {
   ///
   /// This method displays a SnackBar with the error message from the `customError` object.
   /// You can provide custom `backgroundColor` and `behavior` for the SnackBar.
-  static void showSnackBarIfError(
-      BuildContext context, 
-      CustomError customError, {
-      Color? backgroundColor, 
-      SnackBarBehavior? behavior
-      }) {
+  static void showSnackBarIfError(BuildContext context, CustomError customError,
+      {Color? backgroundColor, SnackBarBehavior? behavior}) {
     if (customError.hasAnError()) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

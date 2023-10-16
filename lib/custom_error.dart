@@ -1,7 +1,5 @@
 library custom_error;
 
-import 'custom_error_manager.dart';
-
 /// A class for managing custom errors.
 class CustomError {
 

@@ -1,4 +1,4 @@
-## 0.0.3
+## 0.0.4
 
 ### Added
 - Added Dart doc documentation
@@ -64,6 +64,7 @@ void main() {
 
 ```dart
 import 'package:custom_error/custom_error.dart';
+import 'package:custom_error/custom_error_manager.dart';
 
 ...
 ...
@@ -109,6 +110,7 @@ import 'package:custom_error/custom_error.dart';
 
 ```dart
 import 'package:custom_error/custom_error.dart';
+import 'package:custom_error/custom_error_manager.dart';
 
 ...
 ...

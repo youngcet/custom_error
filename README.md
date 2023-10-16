@@ -82,6 +82,7 @@ void main() {
 
 ```dart
 import 'package:custom_error/custom_error.dart';
+import 'package:custom_error/custom_error_manager.dart';
 
 ...
 ...
@@ -129,6 +130,7 @@ import 'package:custom_error/custom_error.dart';
 
 ```dart
 import 'package:custom_error/custom_error.dart';
+import 'package:custom_error/custom_error_manager.dart';
 
 ...
 ...
