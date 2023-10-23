@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:custom_error/custom_error_manager.dart';
 import 'package:custom_error/custom_error.dart';
@@ -107,12 +109,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ];
 
                       CustomErrorManager.showDialogIfError(
-                          context, 
-                          customError, 
-                          'Error Dialog', 
+                          context,
+                          customError,
+                          'Error Dialog',
                           null, // when null is set, customError.getError() is used
-                          actions
-                      ); 
+                          actions);
                     },
                     child: Text('Show Error Dialog'),
                   ),
@@ -126,6 +127,65 @@ class _MyHomePageState extends State<MyHomePage> {
                           behavior: SnackBarBehavior.fixed);
                     },
                     child: Text('Show Error SnackBar'),
+                  ),
+                  SizedBox(width: 16.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      CustomErrorManager customErrorManager =
+                          CustomErrorManager();
+                      // logging a warning message
+                      customErrorManager.log(w: 'Warning Message');
+
+                      // logging an error message
+                      customErrorManager.log(e: 'Error Message');
+
+                      // logging an info message
+                      customErrorManager.log(i: 'Info Message');
+
+                      // logging a debug message
+                      customErrorManager.log(d: 'Debug Message');
+
+                      // logging a fatal message
+                      customErrorManager.log(f: 'Fatal Message');
+
+                      // logging a trace message
+                      customErrorManager.log(t: 'Trace Message');
+
+                      setState(() {
+                        _inputText = 'check console for output';
+                      });
+                    },
+                    child: Text('Log Error'),
+                  ),
+                  SizedBox(width: 16.0),
+                  ElevatedButton(
+                    onPressed: () async {
+                      // SENDING ERRORS TO A SERVER
+                      // final data = {}; // data to post
+                      // CustomErrorManager customErrorManager = CustomErrorManager();
+                      // await customErrorManager.sendToServer(
+                      //   url: 'url', // endpoint
+                      //   methodType: 'post', // method type (Only POST && GET supported)
+                      //   headers: <String, String>{    // headers
+                      //     'Content-Type': 'application/json',
+                      //   },
+                      //   body: jsonEncode(data) // encode the data
+                      // );
+
+                      // EMAILING THE ERROR USING CustomManager
+                      CustomErrorManager customErrorManager =
+                          CustomErrorManager();
+                      await customErrorManager.emailLog(
+                          message: 'An error has occured',
+                          recipient:
+                              'cmaenetja@gmail.com', // you can add multiple recipients by , separating (e.g. recipient1,recipient2)
+                          appTitle: 'Custom Error Demo');
+
+                      setState(() {
+                        _inputText = 'check console for output';
+                      });
+                    },
+                    child: Text('Email Log'),
                   ),
                 ],
               ),

@@ -17,8 +17,10 @@ The `custom_error` library is designed to simplify error management in your Flut
 - **Error Retrieval:** Easily access individual error details using getter methods.
 - **Error State Check:** Check if an error exists with the `hasAnError()` method.
 - **Type Checking:** Determine if an object is an instance of `CustomError` using the `isAnError()` method.
-- **Show dialogs** with custom titles, messages, and actions when an error occurs.
+- **Show Dialogs** with custom titles, messages, and actions when an error occurs.
 - **Display SnackBars** with custom backgrounds and behaviors based on error conditions.
+- **Error Logging** report errors to a remote server / email / log for further analysis. This can help in identifying and fixing issues in production.
+- **Colored Console Messages** display different color messages based on the error level
 
 ## Installation
 
@@ -74,83 +76,134 @@ void main() {
 }
 ```
 
-### Showing a Dialog / SnackBar when an error occurs using CustomErrorManager
+## CustomErrorManager Class
 
-#### Error Dialog
+The `CustomErrorManager` class is used to manage dialogs based on `CustomError` instances. It provides methods for displaying dialogs and SnackBars if an error exists in the `CustomError` object. You can also use it to log messages at different levels.
+
+### Show Dialog If Error
+
+The `showDialogIfError` method displays an `NAlertDialog` if an error exists in the `customError` object. You can provide a `title`, `message`, and `actions` to customize the dialog.
 
 ![Custom Error Dialog](https://permanentlink.co.za/img/customerrordialog.png)
 
 ```dart
-import 'package:custom_error/custom_error.dart';
-import 'package:custom_error/custom_error_manager.dart';
+CustomError customError = CustomError();
+customError.setError(-1, 'Showing Error Dialog');
 
-...
-...
-  ElevatedButton(
-    onPressed: (){
-      CustomError customError = CustomError();
-      customError.setError(-1, 'Showing Error Dialog');
-
-      // add dialog buttons
-      final actions = <Widget>[
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            // add code logic for the button
-          },
-          child: Text('OK'),
-        ),
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            // add code logic for the button
-          },
-          child: Text('Cancel'),
-        )
-      ];
-
-      // Show a dialog when an error occurs
-      CustomErrorManager.showDialogIfError(
-        context,
-        customError,
-        "Error Title",
-        "Optional error message", // if set to null, customError.getError() message will be used
-        actions,
-      );
+// add dialog buttons
+final actions = <Widget>[
+  TextButton(
+    onPressed: () {
+      Navigator.of(context).pop();
     },
-    child: Text('Show Error Dialog'),
+    child: Text('OK'),
   ),
-  ...
-  ...
+  TextButton(
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+    child: Text('Cancel'),
+  )
+];
+
+CustomErrorManager.showDialogIfError(
+    context, 
+    customError, 
+    'Error Dialog', 
+    null, // when null is set, customError.getError() is used
+    actions
+);
 ```
 
-#### Error SnackBar
+### Show SnackBar If Error
+
+The `showSnackBarIfError` method displays a SnackBar if an error exists in the `customError` object. You can customize the SnackBar with options like `backgroundColor` and `behavior`.
 
 ![Custom Error SnackBar](https://permanentlink.co.za/img/customerrorsnackbar.png)
 
 ```dart
-import 'package:custom_error/custom_error.dart';
-import 'package:custom_error/custom_error_manager.dart';
+CustomError customError = CustomError();
+customError.setError(-1, 'Showing Error SnackBar');
+CustomErrorManager.showSnackBarIfError(
+    context, customError,
+    behavior: SnackBarBehavior.fixed);
+```
 
-...
-...
-  ElevatedButton(
-    onPressed: (){
-      CustomError customError = CustomError();
-      customError.setError(-1, 'Showing Error SnackBar');
+### Log Messages
 
-      // Display a SnackBar when an error occurs
-      CustomErrorManager.showSnackBarIfError(
-        context,
-        customError,
-        backgroundColor: Colors.red,
-        behavior: SnackBarBehavior.floating,
-      );
-    },
-    child: Text('Show Error SnackBar'),
-  )
-  ...
-  ...
+The `log` method is used to log error, warning, info, debug, trace, and fatal messages. You can provide messages for different log levels, and only messages with non-null values will be logged.
+
+```dart
+CustomErrorManager customErrorManager = CustomErrorManager();
+// logging a warning message
+customErrorManager.log(w: 'Warning Message');
+
+// logging an error message
+customErrorManager.log(e: 'Error Message');
+
+// logging an info message
+customErrorManager.log(i: 'Info Message');
+
+// logging a debug message
+customErrorManager.log(d: 'Debug Message');
+
+// logging a fatal message
+customErrorManager.log(f: 'Fatal Message');
+
+// logging a trace message
+customErrorManager.log(t: 'Trace Message');
+```
+
+### Send Error Reports to Server
+
+The `sendToServer` method sends error reports to a specified URL using a specified HTTP method. You can include optional parameters like `headers`, `body`, and `encoding`.
+
+```dart
+final data = {}; // data to post
+CustomErrorManager customErrorManager = CustomErrorManager();
+await customErrorManager.sendToServer(
+   url: 'url', // endpoint
+   methodType: 'post', // method type (Only POST && GET supported)
+   headers: <String, String>{    // headers
+     'Content-Type': 'application/json',
+   },
+   body: jsonEncode(data) // encode the data
+ );
+```
+
+### Email Log
+
+The `emailLog` method sends a log message via email (using CustomManager's email service) to the specified recipient. It includes the log message, recipient's email address, and application title in the email subject.
+
+```dart
+CustomErrorManager customErrorManager = CustomErrorManager();
+await customErrorManager.emailLog(
+  message: 'An error has occured',
+  recipient: 'recipient@example.com', // you can add multiple recipients by , separating (e.g. recipient1,recipient2)
+  appTitle: 'Custom Error Demo'
+);
+```
+
+## Examples
+
+Here are some examples of how to use the Custom Error Reporting library in your Dart application:
+
+```dart
+// Log an error message
+CustomErrorManager().log(e: 'This is an error message');
+
+// Show a dialog if an error exists
+CustomError customError = CustomError();
+CustomErrorManager.showDialogIfError(context, customError, 'Error', 'An error occurred', null);
+
+// Show a SnackBar if an error exists
+CustomErrorManager.showSnackBarIfError(context, customError, backgroundColor: Colors.red);
+
+// Send an error report to a server
+CustomErrorManager().sendToServer(url: 'https://example.com/report', methodType: 'POST', body: 'Report data');
+
+// Email a log message
+CustomErrorManager().emailLog(message: 'Error message', recipient: 'recipient@example.com', appTitle: 'My App');
 ```
 
 ## Documentation

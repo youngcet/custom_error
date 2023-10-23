@@ -1,3 +1,47 @@
+## 0.0.5
+
+### Added
+- Added Error Reporting (send to server or email)
+- Added Message Logging
+- Added Colored Console Messages
+
+### Changed
+- Improved error handling and error instance access.
+
+## Key Features
+
+- **Custom Error Management:** Create and manage custom error objects with error codes and messages.
+- **Flexible Error Storage:** Store multiple errors using a list of maps.
+- **Error Retrieval:** Easily access individual error details using getter methods.
+- **Error State Check:** Check if an error exists with the `hasAnError()` method.
+- **Type Checking:** Determine if an object is an instance of `CustomError` using the `isAnError()` method.
+- **Show dialogs** with custom titles, messages, and actions when an error occurs.
+- **Display SnackBars** with custom backgrounds and behaviors based on error conditions.
+- **Error Logging** report errors to a remote server / email / log for further analysis. This can help in identifying and fixing issues in production.
+- **Colored Console Messages** display different color messages based on the error level
+
+## Usage Example
+
+Here are some examples of how to use the Custom Error Reporting library in your Dart application:
+
+```dart
+// Log an error message
+CustomErrorManager().log(e: 'This is an error message');
+
+// Show a dialog if an error exists
+CustomError customError = CustomError();
+CustomErrorManager.showDialogIfError(context, customError, 'Error', 'An error occurred', null);
+
+// Show a SnackBar if an error exists
+CustomErrorManager.showSnackBarIfError(context, customError, backgroundColor: Colors.red);
+
+// Send an error report to a server
+CustomErrorManager().sendToServer(url: 'https://example.com/report', methodType: 'POST', body: 'Report data');
+
+// Email a log message
+CustomErrorManager().emailLog(message: 'Error message', recipient: 'recipient@example.com', appTitle: 'My App');
+```
+
 ## 0.0.4
 
 ### Added

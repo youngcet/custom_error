@@ -2,7 +2,6 @@ library custom_error;
 
 /// A class for managing custom errors.
 class CustomError {
-
   String? _error;
   int? _code;
 
