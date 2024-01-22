@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:custom_error/custom_error_reporting.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ndialog/ndialog.dart';
 import 'package:http/http.dart' as http;
@@ -321,8 +322,10 @@ class CustomErrorManager implements CustomErrorReporting {
     for (int i = 0; i < 30; i++) {
       multipliedChar += dash;
     }
-
-    print('$multipliedChar$paddedText\n$multipliedChar');
+   
+    if (kDebugMode) {
+      print('$multipliedChar$paddedText\n$multipliedChar');
+    }
   }
 
   /// Send error reports to a server.

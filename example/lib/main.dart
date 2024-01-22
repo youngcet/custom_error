@@ -171,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       //   },
                       //   body: jsonEncode(data) // encode the data
                       // );
-
+                      
                       // EMAILING THE ERROR USING CustomManager
                       CustomErrorManager customErrorManager =
                           CustomErrorManager();

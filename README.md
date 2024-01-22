@@ -190,20 +190,21 @@ Here are some examples of how to use the Custom Error Reporting library in your 
 
 ```dart
 // Log an error message
-CustomErrorManager().log(e: 'This is an error message');
+CustomErrorManager.log(e: 'This is an error message');
 
 // Show a dialog if an error exists
 CustomError customError = CustomError();
+customError.setError(-1, 'An error occured.');
 CustomErrorManager.showDialogIfError(context, customError, 'Error', 'An error occurred', null);
 
 // Show a SnackBar if an error exists
 CustomErrorManager.showSnackBarIfError(context, customError, backgroundColor: Colors.red);
 
 // Send an error report to a server
-CustomErrorManager().sendToServer(url: 'https://example.com/report', methodType: 'POST', body: 'Report data');
+CustomErrorManager.sendToServer(url: 'https://example.com/report', methodType: 'POST', body: 'Report data');
 
 // Email a log message
-CustomErrorManager().emailLog(message: 'Error message', recipient: 'recipient@example.com', appTitle: 'My App');
+CustomErrorManager.emailLog(message: 'Error message', recipient: 'recipient@example.com', appTitle: 'My App');
 ```
 
 ## Documentation
