@@ -2,11 +2,17 @@ library custom_error;
 
 /// A class for managing custom errors.
 class CustomError {
+
+  // error message
   String? _error;
+
+  // error code
   int? _code;
 
+  // show error dialog
   bool? showDialogOnError = false;
 
+  // list of errors
   List<Map<String, dynamic>> errors = [];
 
   /// Default constructor for the CustomError class.
@@ -49,6 +55,7 @@ class CustomError {
     return (_error != null && _code != null) ? true : false;
   }
 
+  // get all errors
   List<Map<String, dynamic>> getAllErrors() {
     return errors;
   }
@@ -57,5 +64,15 @@ class CustomError {
   bool isAnError() {
     //return (val is CustomError) ? true : false;
     return hasAnError();
+  }
+
+  // get last error
+  Map<String, dynamic>? getLatestError(){
+    return errors.isNotEmpty ? errors.last : null;
+  }
+
+  // get error by code
+  List<Map<String, dynamic>> findErrorByCode(int targetCode){
+    return errors.where((error) => error['code'] == targetCode).toList();
   }
 }

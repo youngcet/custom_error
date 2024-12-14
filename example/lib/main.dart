@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               TextField(
                 controller: _textController,
-                decoration: InputDecoration(labelText: 'Enter text'),
+                decoration: InputDecoration(labelText: 'Search Name'),
               ),
               SizedBox(height: 16.0),
               Row(
@@ -80,6 +80,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       customError.addError(100, 'This is error 100');
                       customError.addError(101, 'This is error 101');
                       customError.addError(102, 'This is error 102');
+
+                      print('Last error: ${customError.getLatestError()}');
+                      print('findErrorByCode 101: ${customError.findErrorByCode(101)}');
+
                       setState(() {
                         _inputText = '${customError.getAllErrors()}';
                       });
@@ -178,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       await customErrorManager.emailLog(
                           message: 'An error has occured',
                           recipient:
-                              'cmaenetja@gmail.com', // you can add multiple recipients by , separating (e.g. recipient1,recipient2)
+                              'young.cet@gmail.com', // you can add multiple recipients by , separating (e.g. recipient1,recipient2)
                           appTitle: 'Custom Error Demo');
 
                       setState(() {

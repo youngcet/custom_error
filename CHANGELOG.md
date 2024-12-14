@@ -1,3 +1,9 @@
+## 0.0.6
+
+### Added
+- getLatestError() retrieves the last error added
+- findErrorByCode(int errorcode) retrieves all errors matching the given code
+
 ## 0.0.5
 
 ### Added

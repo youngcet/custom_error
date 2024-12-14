@@ -73,6 +73,12 @@ void main() {
   } else {
     print('No error found.');
   }
+
+  // get last error
+  print('Last error: ${error.getLatestError()}');
+
+  // find errors by error code
+  print('findErrorByCode 101: ${error.findErrorByCode(101)}');
 }
 ```
 
