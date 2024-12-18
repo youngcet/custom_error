@@ -1,3 +1,18 @@
+<p align="center">   
+    <a href="https://pub.dev/packages/custom_error"><img src="https://img.shields.io/pub/v/custom_error?logo=dart&logoColor=white" alt="Pub Version"></a>
+    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/points/custom_error" alt="Pub points"></a>
+    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/likes/custom_error" alt="Pub Likes"></a>
+    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/popularity/custom_error" alt="Pub popularity"></a>
+    <br> 
+    <a href="https://github.com/youngcet/custom_error"><img src="https://img.shields.io/github/stars/youngcet/custom_error?style=social" alt="Repo stars"></a>
+    <a href="https://github.com/youngcet/custom_error/commits/main"><img src="https://img.shields.io/github/last-commit/youngcet/custom_error/main?logo=git" alt="Last Commit"></a>
+    <a href="https://github.com/youngcet/custom_error/pulls"><img src="https://img.shields.io/github/issues-pr/youngcet/custom_error" alt="Repo PRs"></a>
+    <a href="https://github.com/youngcet/custom_error/issues?q=is%3Aissue+is%3Aopen"><img src="https://img.shields.io/github/issues/youngcet/custom_error" alt="Repo issues"></a>
+    <a href="https://github.com/youngcet/custom_error/graphs/contributors"><img src="https://badgen.net/github/contributors/youngcet/custom_error" alt="Contributors"></a>
+    <a href="https://github.com/youngcet/custom_error/blob/main/LICENSE"><img src="https://badgen.net/github/license/youngcet/custom_error" alt="License"></a>
+    <br>       
+    <a href="https://app.codecov.io/gh/youngcet/custom_error"><img src="https://img.shields.io/codecov/c/github/youngcet/custom_error?logo=codecov&logoColor=white" alt="Coverage Status"></a>
+</p>
 
 # custom_error
 
