@@ -16,7 +16,7 @@
 
 # custom_error
 
-A Flutter package for custom error management.
+A Flutter package for custom error management. ([Java library Version](#java-library-version) also available [here](https://central.sonatype.com/artifact/za.co.permanentlink/custom-error))
 
 [![Pub Version](https://img.shields.io/pub/v/custom_error)](https://pub.dev/packages/custom_error)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/youngcet/custom_error/blob/main/LICENSE)
@@ -226,6 +226,75 @@ CustomErrorManager.sendToServer(url: 'https://example.com/report', methodType: '
 
 // Email a log message
 CustomErrorManager.emailLog(message: 'Error message', recipient: 'recipient@example.com', appTitle: 'My App');
+```
+
+## Java Library Version
+
+In addition to the Flutter package, the `custom_error` library is also available as a Java library for use in Java-based applications.
+
+### Gradle Dependency
+
+Add the following Maven dependency to your `build.gradle`:
+
+```gradle
+dependencies {
+    implementation 'za.co.permanentlink:custom-error:1.0.1' // always use the 3 digit version number
+}
+```
+
+### Maven Dependency
+
+Add the following Maven dependency to your `pom.xml`:
+
+```xml
+// always use the 3 digit version number
+<dependency>
+  <groupId>za.co.permanentlink</groupId>
+  <artifactId>custom-error</artifactId>
+  <version>1.0.1</version>
+</dependency>
+```
+
+For more dependency options, visit [Central Maven Repository](https://central.sonatype.com/artifact/za.co.permanentlink/custom-error).
+
+### Usage
+
+Most function names have been retained across platforms. If a method is available in Flutter but not in the Java version, it indicates that the Java version does not yet support that specific functionality.
+
+```java 
+package com.example;
+
+import za.co.permanentlink.CustomError; // import package
+
+public class Main {
+    public static void main(String[] args) {
+        // instantiate the object
+        CustomError error = new CustomError();
+        // add the error message
+        error.addError(-1, "Error Message");
+
+        // get the error code and message
+        // error.getErrorCode() = get error code
+        // error.getError() = get the error message
+        System.out.println(error.getErrorCode() + " " + error.getError());
+
+        // check if there is an error
+        if (error.hasAnError()){
+            System.out.println("An error occurred: "+ error.getErrorCode() + " " + error.getError());
+        }
+
+        // get the last error
+        System.out.println(error.getLatestError());
+
+        // Add multiple errors
+        error.addError(200, "Error 200");
+        error.addError(300, "Error 300");
+
+        // Retrieve all errors
+        var allErrors = error.getAllErrors();
+        System.out.println(allErrors);
+    }
+}
 ```
 
 ## Documentation

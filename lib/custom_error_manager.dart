@@ -10,6 +10,7 @@ import 'package:intl/intl.dart';
 import 'constants.dart';
 import 'custom_error.dart';
 
+
 /// An enumeration of text color options for styling console messages.
 ///
 /// Use the [TextColor] enum to specify the color of text in styled console messages.
