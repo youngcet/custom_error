@@ -21,6 +21,16 @@ The "custom_error" library is a powerful package designed to streamline error ma
 
 The `custom_error` library is designed to simplify error management in your Flutter applications. It provides a versatile `CustomError` class that allows you to create, store, and access custom error instances with ease.
 
+Most function names have been retained across platforms. If a method is available in Flutter but not in the Java version, it indicates that the Java version does not yet support that specific functionality.
+
+## Flutter Library Version
+<p>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://img.shields.io/pub/v/custom_error?logo=dart&logoColor=white" alt="Pub Version"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/points/custom_error" alt="Pub points"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/likes/custom_error" alt="Pub Likes"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/popularity/custom_error" alt="Pub popularity"></a>
+</p>
+
 ### Key Features
 
 - **Custom Error Management:** Create and manage custom error objects with error codes and messages.
@@ -32,16 +42,6 @@ The `custom_error` library is designed to simplify error management in your Flut
 - **Display SnackBars** with custom backgrounds and behaviors based on error conditions.
 - **Error Logging** report errors to a remote server / email / log for further analysis. This can help in identifying and fixing issues in production.
 - **Colored Console Messages** display different color messages based on the error level
-
-Most function names have been retained across platforms. If a method is available in Flutter but not in the Java version, it indicates that the Java version does not yet support that specific functionality.
-
-## Flutter Library Version
-<p>
-  <a href="https://pub.dev/packages/custom_error"><img src="https://img.shields.io/pub/v/custom_error?logo=dart&logoColor=white" alt="Pub Version"></a>
-  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/points/custom_error" alt="Pub points"></a>
-  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/likes/custom_error" alt="Pub Likes"></a>
-  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/popularity/custom_error" alt="Pub popularity"></a>
-</p>
 
 ## Installation
 
