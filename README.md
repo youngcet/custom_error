@@ -1,9 +1,4 @@
 <p align="center">   
-    <a href="https://pub.dev/packages/custom_error"><img src="https://img.shields.io/pub/v/custom_error?logo=dart&logoColor=white" alt="Pub Version"></a>
-    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/points/custom_error" alt="Pub points"></a>
-    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/likes/custom_error" alt="Pub Likes"></a>
-    <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/popularity/custom_error" alt="Pub popularity"></a>
-    <br> 
     <a href="https://github.com/youngcet/custom_error"><img src="https://img.shields.io/github/stars/youngcet/custom_error?style=social" alt="Repo stars"></a>
     <a href="https://github.com/youngcet/custom_error/commits/main"><img src="https://img.shields.io/github/last-commit/youngcet/custom_error/main?logo=git" alt="Last Commit"></a>
     <a href="https://github.com/youngcet/custom_error/pulls"><img src="https://img.shields.io/github/issues-pr/youngcet/custom_error" alt="Repo PRs"></a>
@@ -14,12 +9,13 @@
     <a href="https://app.codecov.io/gh/youngcet/custom_error"><img src="https://img.shields.io/codecov/c/github/youngcet/custom_error?logo=codecov&logoColor=white" alt="Coverage Status"></a>
 </p>
 
-# custom_error
+# Custom Error Library
 
-A Flutter package for custom error management. ([Java library Version](#java-library-version) also available [here](https://central.sonatype.com/artifact/za.co.permanentlink/custom-error))
+The "custom_error" library is a powerful package designed to streamline error management and elevate error handling in your applications.
 
-[![Pub Version](https://img.shields.io/pub/v/custom_error)](https://pub.dev/packages/custom_error)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/youngcet/custom_error/blob/main/LICENSE)
+- [Flutter Library Version](#flutter-library-version)
+- [Java Library Version](#java-library-version) 
+- [PHP Library Version](#php-library-version)
 
 ## Overview
 
@@ -36,6 +32,16 @@ The `custom_error` library is designed to simplify error management in your Flut
 - **Display SnackBars** with custom backgrounds and behaviors based on error conditions.
 - **Error Logging** report errors to a remote server / email / log for further analysis. This can help in identifying and fixing issues in production.
 - **Colored Console Messages** display different color messages based on the error level
+
+Most function names have been retained across platforms. If a method is available in Flutter but not in the Java version, it indicates that the Java version does not yet support that specific functionality.
+
+## Flutter Library Version
+<p>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://img.shields.io/pub/v/custom_error?logo=dart&logoColor=white" alt="Pub Version"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/points/custom_error" alt="Pub points"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/likes/custom_error" alt="Pub Likes"></a>
+  <a href="https://pub.dev/packages/custom_error"><img src="https://badgen.net/pub/popularity/custom_error" alt="Pub popularity"></a>
+</p>
 
 ## Installation
 
@@ -259,8 +265,6 @@ For more dependency options, visit [Central Maven Repository](https://central.so
 
 ### Usage
 
-Most function names have been retained across platforms. If a method is available in Flutter but not in the Java version, it indicates that the Java version does not yet support that specific functionality.
-
 ```java 
 package com.example;
 
@@ -296,6 +300,15 @@ public class Main {
     }
 }
 ```
+
+## PHP Library Version
+
+**Innovation Award Winner!**
+
+![Innovation award](https://files.phpclasses.org/graphics/phpclasses/innovation-award-logo.png)
+
+
+Please refer to [PHPClasses](https://www.phpclasses.org/package/12693-PHP-Set-and-get-custom-application-errors.html) for documentation.
 
 ## Documentation
 
